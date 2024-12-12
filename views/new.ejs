@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write New Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        h3 {
+            margin-top: 0;
+            color: #333;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button[type="reset"] {
+            background-color: #ccc;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button[type="reset"]:hover {
+            background-color: #b3b3b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Write a New Chat</h3>
+        <form method="post" action="/chats">
+            <label for="from">Who are you?</label>
+            <input id="from" placeholder="Enter your name" name="from" type="text" required>
+
+            <label for="msg">Message</label>
+            <textarea id="msg" name="msg" placeholder="Write your message here..." required></textarea>
+
+            <label for="to">Receiver</label>
+            <input id="to" placeholder="Enter receiver's name" name="to" type="text" required>
+
+            <div class="btn-group">
+                <button type="submit">Create Chat</button>
+                <button type="reset">Clear</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

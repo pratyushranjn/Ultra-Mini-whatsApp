@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            resize: vertical;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button.cancel {
+            background-color: #ccc;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button.cancel:hover {
+            background-color: #b3b3b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Your Chat</h2>
+        <p><strong>Chat ID:</strong> <%= chat._id %></p>
+        <p>This chat was sent from <b><%= chat.from %></b> to <b><%= chat.to %></b></p>
+        
+        <form method="post" action="/chats/<%= chat._id %>?_method=PUT">
+            <label for="msg">Edit Message:</label>
+            <textarea id="msg" name="msg" placeholder="Type your message here..."><%= chat.msg %></textarea>
+            
+            <div class="btn-group">
+                <button type="submit">Save Changes</button>
+                <button type="button" class="cancel" onclick="window.history.back()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
