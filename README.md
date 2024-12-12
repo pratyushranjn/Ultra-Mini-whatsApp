@@ -1,6 +1,6 @@
 # Ultra Mini WhatsApp
 
-This is a simple chat app built with **Node.js**, **Express**, and **MongoDB**. It allows users to create, edit, and delete chat messages.
+This is a very simple chat app built with **Node.js**, **Express**, and **MongoDB**. It allows users to create, edit, and delete chat messages.
 
 ## Features
 - View and manage chats.
