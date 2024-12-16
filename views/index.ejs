@@ -19,32 +19,47 @@
         <h3>All Chats</h3>
 
         <% if (chats.length === 0) { %>
-          <p>No chats available. Start a new chat!</p>
+        <p>No chats available. Start a new chat!</p>
         <% } else { %>
-          <div class="chat-list">
-            <% for (let chat of chats) { %>
-              <div class="chat-item">
-                <div class="chat-header">
-                  <p><strong>From:</strong> <%= chat.from %></p>
-                  <p><strong>To:</strong> <%= chat.to %></p>
-                </div>
-                <div class="msg">
-                  <p><%= chat.msg %></p>
-                </div>
-                <div class="chat-footer">
-                  <p><small><%= chat.created_at.toString().split(" ").slice(0, 4).join("-") %> - <%= chat.created_at.toString().split(" ")[4] %></small></p>
-                  <div class="chat-actions">
-                    <form method="get" action="/chats/<%= chat._id %>/edit">
-                      <button class="edit-btn">Edit</button>
-                    </form>
-                    <form method="post" action="/chats/<%= chat._id %>?_method=DELETE" class="delete-form">
-                      <button class="delete-btn">Delete</button>
-                    </form>
-                  </div>
-                </div>
+        <div class="chat-list">
+          <% for (let chat of chats) { %>
+          <div class="chat-item">
+            <div class="chat-header">
+              <p><strong>From:</strong> <%= chat.from %></p>
+              <p><strong>To:</strong> <%= chat.to %></p>
+            </div>
+            <div class="msg">
+              <p><%= chat.msg %></p>
+            </div>
+            <div class="chat-footer">
+              <p>
+                <small
+                  ><%= chat.created_at.toString().split(" ").slice(0,
+                  4).join("-") %> - <%= chat.created_at.toString().split(" ")[4]
+                  %></small
+                >
+              </p>
+              <div class="chat-actions">
+                <form method="get" action="/chats/<%= chat._id %>/edit">
+                  <button class="edit-btn">Edit</button>
+                </form>
+                <form
+                  method="post"
+                  action="/chats/<%= chat._id %>?_method=DELETE"
+                  class="delete-form"
+                >
+                  <button class="delete-btn">Delete</button>
+                </form>
+
+
+                <form action="/chats/<%= chat._id %>" method="get">
+                  <button class="show">Show</button>
+                </form>
               </div>
-            <% } %>
+            </div>
           </div>
+          <% } %>
+        </div>
         <% } %>
       </main>
     </div>
